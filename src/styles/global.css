@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #eef6ff;
+  --color-primary-100: #d7e9ff;
+  --color-primary-200: #b0d2ff;
+  --color-primary-300: #82b4f4;
+  --color-primary-400: #5d95db;
+  --color-primary-500: #2468b2;
+  --color-primary-600: #1f5b9c;
+  --color-primary-700: #1a4e86;
+  --color-primary-800: #15406f;
+  --color-primary-900: #11345a;
+
+  --color-accent-50: #eaf3ff;
+  --color-accent-100: #d4e6ff;
+  --color-accent-200: #aacdff;
+  --color-accent-300: #7cb0f5;
+  --color-accent-400: #4f91df;
+  --color-accent-500: #1353a5;
+  --color-accent-600: #114992;
+  --color-accent-700: #0e3f7e;
+  --color-accent-800: #0b3368;
+  --color-accent-900: #07264f;
+
+  --color-surface-50: #e4ecf7;
+  --color-surface-100: #d4dfee;
+  --color-surface-200: #bccae0;
+  --color-surface-300: #9aafce;
+  --color-surface-400: #7088ae;
+  --color-surface-500: #4e6489;
+  --color-surface-600: #384b6a;
+  --color-surface-700: #374151;
+  --color-surface-800: #1f2937;
+  --color-surface-900: #111827;
+  --color-surface-950: #0a0f1a;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-surface-900 antialiased transition-colors duration-200;
+}
+
+html.dark body {
+  @apply bg-surface-950 text-surface-100;
+}
+
+/* Scrollbar styling for dark mode */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Prose styling for docs */
+.prose {
+  @apply max-w-none leading-relaxed;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-surface-950;
+}
+
+html.dark .prose h1 {
+  @apply text-surface-50;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold mt-8 mb-3 text-surface-950;
+}
+
+html.dark .prose h2 {
+  @apply text-surface-50;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-2 text-surface-900;
+}
+
+html.dark .prose h3 {
+  @apply text-surface-100;
+}
+
+.prose p {
+  @apply mb-4 text-surface-800;
+}
+
+html.dark .prose p {
+  @apply text-surface-300;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-4 pl-6;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-1 text-surface-800;
+}
+
+html.dark .prose li {
+  @apply text-surface-300;
+}
+
+.prose code {
+  @apply bg-surface-200 text-primary-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+html.dark .prose code {
+  @apply bg-surface-800 text-primary-300;
+}
+
+.prose pre {
+  @apply bg-surface-900 text-surface-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+html.dark .prose pre {
+  @apply bg-surface-800;
+}
+
+.prose pre code {
+  @apply bg-transparent text-inherit px-0 py-0;
+}
+
+.prose a {
+  @apply text-primary-700 underline decoration-primary-400 hover:decoration-primary-700 transition-colors;
+}
+
+html.dark .prose a {
+  @apply text-primary-400 decoration-primary-700 hover:decoration-primary-400;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary-400 pl-4 italic text-surface-700 mb-4;
+}
+
+html.dark .prose blockquote {
+  @apply border-primary-700 text-surface-400;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th {
+  @apply bg-surface-50 text-left px-4 py-2 font-semibold border border-surface-200;
+}
+
+html.dark .prose th {
+  @apply bg-surface-800 border-surface-700;
+}
+
+.prose td {
+  @apply px-4 py-2 border border-surface-200;
+}
+
+html.dark .prose td {
+  @apply border-surface-700;
+}
+
+.prose hr {
+  @apply my-8 border-surface-200;
+}
+
+html.dark .prose hr {
+  @apply border-surface-700;
+}
+
+/* Aside / Admonition styles */
+.prose .aside {
+  @apply rounded-lg border-l-4 px-5 py-4 mb-6 not-italic;
+}
+
+.prose .aside-title {
+  @apply font-semibold mb-2 text-sm uppercase tracking-wide;
+}
+
+.prose .aside p:last-child {
+  @apply mb-0;
+}
+
+/* Note */
+.prose .aside-note {
+  @apply bg-blue-50 border-blue-500 text-blue-900;
+}
+
+html.dark .prose .aside-note {
+  @apply bg-blue-950/30 border-blue-400 text-blue-200;
+}
+
+/* Tip */
+.prose .aside-tip {
+  @apply bg-emerald-50 border-emerald-500 text-emerald-900;
+}
+
+html.dark .prose .aside-tip {
+  @apply bg-emerald-950/30 border-emerald-400 text-emerald-200;
+}
+
+/* Caution */
+.prose .aside-caution {
+  @apply bg-amber-50 border-amber-500 text-amber-900;
+}
+
+html.dark .prose .aside-caution {
+  @apply bg-amber-950/30 border-amber-400 text-amber-200;
+}
+
+/* Danger */
+.prose .aside-danger {
+  @apply bg-red-50 border-red-500 text-red-900;
+}
+
+html.dark .prose .aside-danger {
+  @apply bg-red-950/30 border-red-400 text-red-200;
+}

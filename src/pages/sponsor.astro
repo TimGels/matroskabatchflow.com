@@ -1,0 +1,253 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<BaseLayout
+  title="Support the Project"
+  description="Matroska Batch Flow is free and open-source software. Support its continued development by sponsoring on GitHub or buying a coffee.">
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="py-20 sm:py-28">
+      <div class="container mx-auto px-4 text-center">
+        <Image
+          src={logo}
+          alt="Matroska Batch Flow Logo"
+          class="mx-auto mb-8 w-20 h-20 sm:w-24 sm:h-24 drop-shadow-xl"
+          width={512}
+          height={512}
+          loading="eager"
+        />
+        <h1
+          class="text-4xl sm:text-5xl font-bold text-surface-900 dark:text-white mb-6">
+          Support the Project
+        </h1>
+        <p
+          class="text-lg sm:text-xl text-surface-600 dark:text-surface-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Matroska Batch Flow is free and open-source software, built and
+          maintained in my free time. If you find it useful, the best way to
+          support the project is by donating to help fund its continued
+          development.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://github.com/sponsors/TimGels"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#bf167e] hover:bg-[#a3126b] text-white font-semibold text-lg shadow-lg shadow-[#bf167e]/25 hover:shadow-[#bf167e]/40 transition-all duration-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              ></path>
+            </svg>
+            Sponsor on GitHub
+          </a>
+          <a
+            href="https://buymeacoffee.com/timgels"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#ffdd00] hover:bg-[#e6c800] text-[#000000] font-semibold text-lg shadow-lg shadow-[#ffdd00]/25 hover:shadow-[#ffdd00]/40 transition-all duration-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+            Buy Me a Coffee
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the developer -->
+    <section
+      class="py-16 sm:py-20 bg-surface-50 dark:bg-surface-900/50 transition-colors">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-surface-900 dark:text-white mb-6 text-center">
+          About Me
+        </h2>
+        <div
+          class="space-y-4 text-surface-600 dark:text-surface-400 text-lg leading-relaxed text-justify">
+          <p>
+            Hi, I'm Tim, a software engineer from the Netherlands with a passion
+            for open source. I have a particular interest in media container
+            formats and video codecs, and that's what ultimately led me to build
+            Matroska Batch Flow.
+          </p>
+          <p>
+            I created this project because I needed a way to efficiently edit
+            Matroska container properties across large collections of files, and
+            nothing out there quite fit the bill. What started as a personal
+            tool has grown into something I'm proud to share with the community.
+          </p>
+          <p>
+            Beyond this project, I'm an active member of multiple open source
+            communities, most notably the
+            <a
+              href="https://jellyfin.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary-600 dark:text-primary-400 hover:underline"
+              >Jellyfin</a
+            >
+            community, and enjoy contributing to and participating in open source
+            projects wherever I can.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What your support helps with -->
+    <section class="py-16 sm:py-20 transition-colors">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-surface-900 dark:text-white mb-8 text-center">
+          What Your Support Helps With
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 text-primary-600 dark:text-primary-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-surface-900 dark:text-white mb-1">
+                New Features
+              </h3>
+              <p class="text-surface-600 dark:text-surface-400">
+                Continued development of new functionality and improvements.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 text-primary-600 dark:text-primary-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-surface-900 dark:text-white mb-1">
+                Bug Fixes
+              </h3>
+              <p class="text-surface-600 dark:text-surface-400">
+                Keeping the application stable and reliable for everyone.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 text-primary-600 dark:text-primary-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-surface-900 dark:text-white mb-1">
+                Documentation
+              </h3>
+              <p class="text-surface-600 dark:text-surface-400">
+                Maintaining clear, up-to-date guides and documentation.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 text-primary-600 dark:text-primary-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-surface-900 dark:text-white mb-1">
+                Motivation
+              </h3>
+              <p class="text-surface-600 dark:text-surface-400">
+                Knowing the work is valued keeps the project moving forward.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="py-12 sm:py-16 text-center transition-colors">
+      <div class="container mx-auto px-4">
+        <p
+          class="text-surface-500 dark:text-surface-500 max-w-xl mx-auto leading-relaxed">
+          Every contribution means a lot and shows that the work is valued.
+          Thank you for considering it.
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 text-pink-500 inline-block ml-1 align-middle"
+            viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            ></path>
+          </svg>
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

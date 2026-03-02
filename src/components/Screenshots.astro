@@ -1,0 +1,67 @@
+---
+import { getImage } from "astro:assets";
+import Carousel from "./Carousel.svelte";
+import inputPage from "../assets/screenshots/Input-Page.jpg";
+import audioConfigPage from "../assets/screenshots/Audio-Config-Page.jpg";
+import resultsPage from "../assets/screenshots/Results-Page.jpg";
+import settingsPage from "../assets/screenshots/Settings-Page.jpg";
+
+const screenshots = [
+  {
+    image: inputPage,
+    alt: "Input Page: Add files for batch processing",
+    caption: "Input Page",
+    description: "Add files for batch processing",
+  },
+  {
+    image: audioConfigPage,
+    alt: "Track Configuration: Edit track properties",
+    caption: "Track Configuration",
+    description: "Edit track properties",
+  },
+  {
+    image: resultsPage,
+    alt: "Results Page: Review processing results",
+    caption: "Results Page",
+    description: "Review processing results",
+  },
+  {
+    image: settingsPage,
+    alt: "Settings Page: Customize application preferences",
+    caption: "Settings Page",
+    description: "Customize application preferences",
+  },
+];
+
+const slides = await Promise.all(
+  screenshots.map(async ({ image, alt, caption, description }) => {
+    const optimized = await getImage({ src: image });
+    return {
+      src: optimized.src,
+      alt,
+      caption,
+      description,
+      width: optimized.attributes.width,
+      height: optimized.attributes.height,
+    };
+  }),
+);
+---
+
+<section
+  id="screenshots"
+  class="py-20 sm:py-28 bg-surface-50 dark:bg-surface-900/50 transition-colors">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2
+        class="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
+        See It in Action
+      </h2>
+      <p
+        class="text-lg text-surface-600 dark:text-surface-400 max-w-2xl mx-auto">
+        A modern interface built for clarity and efficiency.
+      </p>
+    </div>
+    <Carousel slides={slides} client:load />
+  </div>
+</section>

@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+import { latestVersion } from '../config/version';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Matroska Batch Flow",
+  description = "A powerful application for batch editing Matroska (.mkv) file container properties. Modify track names, languages, flags and more across multiple files at once, without re-encoding.",
+  ogImage = "/images/og-banner.png",
+  ogType = "website",
+  canonicalUrl,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = "https://matroskabatchflow.com";
+const fullTitle =
+  title === "Matroska Batch Flow" ? title : `${title} | Matroska Batch Flow`;
+const resolvedCanonical =
+  canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const resolvedOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteUrl).href;
+---
+
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Tim Gels" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={resolvedCanonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:alt" content={fullTitle} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Matroska Batch Flow" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / Discord Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={resolvedCanonical} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#2468b2" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Matroska Batch Flow",
+        description: description,
+        url: siteUrl,
+        applicationCategory: "MultimediaApplication",
+        operatingSystem: "Windows",
+        license: "https://www.gnu.org/licenses/gpl-3.0.html",
+        author: {
+          "@type": "Person",
+          name: "Tim Gels",
+          url: "https://github.com/TimGels",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        softwareVersion: latestVersion,
+        softwareRequirements: "MKVToolNix (mkvpropedit)",
+        downloadUrl: "https://github.com/TimGels/Matroska-Batch-Flow/releases",
+      })}
+    />
+
+    <!-- Theme initialization (prevent flash) -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        if (
+          stored === "dark" ||
+          (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>

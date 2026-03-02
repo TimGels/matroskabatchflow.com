@@ -1,0 +1,22 @@
+{
+  "name": "matroskabatchflow.com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/svelte": "^7.2.5",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1",
+    "remark-directive": "^4.0.0",
+    "svelte": "^5.53.6",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}

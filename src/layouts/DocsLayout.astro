@@ -1,0 +1,65 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+  currentSlug: string;
+}
+
+const { title, description, currentSlug } = Astro.props;
+
+const docs = await getCollection("docs");
+const sortedDocs = docs.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+  <div class="container mx-auto px-4 py-8 lg:py-12 flex-1">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <!-- Sidebar -->
+      <aside class="lg:w-64 shrink-0">
+        <nav class="lg:sticky lg:top-24">
+          <h3
+            class="text-xs font-semibold uppercase tracking-wider text-surface-500 dark:text-surface-400 mb-3">
+            Documentation
+          </h3>
+          <ul class="space-y-1">
+            {
+              sortedDocs.map((doc) => {
+                const isActive = doc.id === currentSlug;
+                return (
+                  <li>
+                    <a
+                      href={`/docs/${doc.id}`}
+                      class:list={[
+                        "block px-3 py-2 rounded-lg text-sm transition-colors",
+                        isActive
+                          ? "bg-primary-200 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 font-medium"
+                          : "text-surface-700 dark:text-surface-400 hover:bg-surface-200 dark:hover:bg-surface-800 hover:text-surface-900 dark:hover:text-surface-200",
+                      ]}
+                      aria-current={isActive ? "page" : undefined}>
+                      {doc.data.title}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <main class="flex-1 min-w-0">
+        <article class="prose">
+          <h1>{title}</h1>
+          <slot />
+        </article>
+      </main>
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>
