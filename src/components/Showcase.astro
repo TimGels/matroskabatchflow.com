@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import inputPage from "../assets/screenshots/Input-Page.jpg";
+import audioConfigPage from "../assets/screenshots/Audio-Config-Page.jpg";
+import resultsPage from "../assets/screenshots/Results-Page.jpg";
+import settingsPage from "../assets/screenshots/Settings-Page.jpg";
+
+const sections = [
+  {
+    heading: "Add your files",
+    body: "Drop in your files and get ready to start configuring properties the way you like. Matroska Batch Flow automatically analyzes each file and sets everything up for batch editing.",
+    image: inputPage,
+    alt: "Input page showing a list of loaded MKV files with their detected tracks",
+    imageRight: true,
+  },
+  {
+    heading: "Configure properties",
+    body: "Set track names, languages, flags, and other properties across all files from one place. Visual indicators show which tracks are shared across files, giving you a clear picture before you make any changes.",
+    image: audioConfigPage,
+    alt: "Track configuration page showing audio and subtitle track properties being edited",
+    imageRight: false,
+  },
+  {
+    heading: "Process and review",
+    body: "Hit Process Files and the changes are written directly to your .mkv containers. The results page shows a breakdown per file: how many succeeded, got warnings, or failed.",
+    image: resultsPage,
+    alt: "Results page showing a summary of processed files with success and skip indicators",
+    imageRight: true,
+  },
+  {
+    heading: "Make it yours",
+    body: "Configure Matroska Batch Flow to fit your workflow. Tune validation behavior, choose a theme, and more. Your preferences are saved and ready the next time you open the app.",
+    image: settingsPage,
+    alt: "Settings page showing validation mode, theme, and mkvpropedit path options",
+    imageRight: false,
+  },
+];
+---
+
+<section id="showcase" class="py-20 sm:py-28 transition-colors">
+  <div class="container mx-auto px-4 space-y-28 sm:space-y-36">
+    {
+      sections.map(({ heading, body, image, alt, imageRight }) => (
+        <div
+          class:list={[
+            "flex flex-col gap-10 lg:gap-16 items-center",
+            imageRight ? "lg:flex-row" : "lg:flex-row-reverse",
+          ]}>
+          {/* Text */}
+          <div class="flex-1 max-w-xl">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-surface-900 dark:text-white mb-5 leading-snug">
+              {heading}
+            </h2>
+            <p class="text-lg text-surface-600 dark:text-surface-400 leading-relaxed">
+              {body}
+            </p>
+          </div>
+
+          {/* Screenshot */}
+          <div class="flex-1 w-full max-w-2xl">
+            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-surface-900/20 dark:shadow-surface-950/50 border border-surface-200 dark:border-surface-700/50 ring-1 ring-surface-900/5 dark:ring-white/5">
+              <Image
+                src={image}
+                alt={alt}
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
