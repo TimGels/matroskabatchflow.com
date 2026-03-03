@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { latestVersion } from '../config/version';
+import { latestVersion } from "../config/version";
 
 interface Props {
   title?: string;
@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title = "Matroska Batch Flow",
-  description = "A powerful application for batch editing Matroska (.mkv) file container properties. Modify track names, languages, flags and more across multiple files at once, without re-encoding.",
+  description = "A powerful, open-source application for batch editing Matroska container properties. Modify track names, languages, flags, and more across multiple .mkv files at once with just a few clicks. ",
   ogImage = "/images/og-banner.png",
   ogType = "website",
   canonicalUrl,
@@ -73,6 +73,17 @@ const resolvedOgImage = ogImage.startsWith("http")
 
     <!-- JSON-LD Structured Data -->
     <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Matroska Batch Flow",
+        url: siteUrl,
+      })}
+    />
+    <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
@@ -88,13 +99,7 @@ const resolvedOgImage = ogImage.startsWith("http")
           name: "Tim Gels",
           url: "https://github.com/TimGels",
         },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
         softwareVersion: latestVersion,
-        softwareRequirements: "MKVToolNix (mkvpropedit)",
         downloadUrl: "https://github.com/TimGels/Matroska-Batch-Flow/releases",
       })}
     />
