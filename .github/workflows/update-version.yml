@@ -22,11 +22,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Temporarily disable 'exit on error' so a 404 from gh api doesn't fail the step
+          set +e
           TAG=$(gh api repos/TimGels/Matroska-Batch-Flow/releases/latest \
             --jq '.tag_name')
+          status=$?
+          set -e
 
-          if [ -z "$TAG" ]; then
-            echo "No releases found, skipping."
+          if [ "$status" -ne 0 ] || [ -z "$TAG" ]; then
+            echo "No releases found or failed to fetch latest release
+          set -e
+
+          if [ "$status" -ne 0 ] || [ -z "$TAG" ]; then
+            echo "No releases found or failed to fetch latest release, skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
