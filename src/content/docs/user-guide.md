@@ -73,7 +73,19 @@ You can enable the **Track Availability Display** setting to show a detailed fil
 
 When ready, press **Process Files** to apply your changes to all files in the batch.
 
-After processing, the Results page shows a summary with counts for total files, succeeded, warnings, and failed.
+While the batch is being processed, a progress window covers the app. It shows the file being processed, how many files are done, and the overall progress. For changes that read the whole file, such as adding track statistics tags, it also shows the progress of the current file as a percentage. On Windows, the progress is also shown on the app's taskbar button.
+
+The rest of the app can't be used until processing has finished, so settings can't change halfway through a batch.
+
+### Cancelling
+
+Press **Cancel** to stop the batch:
+
+- Files that haven't been started are left unchanged.
+- A file that is still being read, for example while track statistics are calculated, is stopped right away and left unchanged.
+- A file that is already being written is finished first, so a file is never left half-written.
+
+After processing, a dialog summarizes the result, and the Results page shows counts for total files, succeeded, warnings, and failed.
 
 ## Next Steps
 
