@@ -81,9 +81,8 @@ The rest of the app can't be used until processing has finished, so settings can
 
 Press **Cancel** to stop the batch:
 
+- The file that is being processed is always finished first, so a file is never left half-written. When track statistics are added to a large file this can take a while; the progress window keeps showing its progress.
 - Files that haven't been started are left unchanged.
-- A file that is still being read, for example while track statistics are calculated, is stopped right away and left unchanged.
-- A file that is already being written is finished first, so a file is never left half-written.
 
 After processing, a dialog summarizes the result, and the Results page shows counts for total files, succeeded, warnings, and failed.
 
