@@ -21,7 +21,7 @@ The website and documentation for **[Matroska Batch Flow](https://github.com/Tim
 
 ## Getting Started
 
-**Prerequisites:** [Node.js](https://nodejs.org/) 22 (see [`.node-version`](.node-version))
+**Prerequisites:** [Node.js](https://nodejs.org/) 22.23.4 or newer (see [`.node-version`](.node-version))
 
 ```bash
 # Install dependencies

@@ -9,12 +9,12 @@ This repository contains:
 - A sponsor page
 
 ## Tech Stack
-- **Astro 5** — Static site generator (SSG)
+- **Astro 7** — Static site generator (SSG)
 - **Svelte 5** — Used for interactive "island" components (ThemeToggle, MobileMenu, Carousel)
 - **Tailwind CSS v4** — Utility-first styling, using `class` dark mode strategy via `@custom-variant dark`
 - **MDX** — Documentation content authored as Markdown with frontmatter, loaded via Astro Content Collections with a glob loader
 - **TypeScript** — Strict mode (extends `astro/tsconfigs/strict`)
-- **remark-directive + custom remark-asides plugin** — Transforms `:::note`, `:::tip`, `:::caution`, `:::danger` directives into styled aside elements
+- **Unified Markdown processor + remark-directive + custom remark-asides plugin** — Transforms `:::note`, `:::tip`, `:::caution`, `:::danger` directives into styled aside elements
 
 ## Deployment
 - GitHub Actions builds and deploys to **GitHub Pages** on pushes to `main`
