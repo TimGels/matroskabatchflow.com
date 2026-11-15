@@ -54,6 +54,8 @@ The Video, Audio, and Subtitles pages let you configure properties per track:
 | **Default flag** | Marks a track as the default for its type            |
 | **Forced flag**  | Marks a track as forced (e.g., for forced subtitles) |
 
+Use the reset button beside a track property to return it to its auto-detected value from the batch. If no scanned track at that position has a title, resetting the track name clears it.
+
 ### Track Availability Indicators
 
 Not all files may have the same number of tracks. Each track in the selection dropdown shows a colored dot indicating its availability across your batch:
