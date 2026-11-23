@@ -1,6 +1,6 @@
 <script>
   /**
-   * @type {{ slides: Array<{ src: string, alt: string, caption: string, description: string, width: number, height: number }> }}
+   * @type {{ slides: Array<{ src: string, darkSrc: string, alt: string, caption: string, description: string, width: number, height: number }> }}
    */
   let { slides } = $props();
 
@@ -70,7 +70,16 @@
             alt={slide.alt}
             width={slide.width}
             height={slide.height}
-            class="w-full h-auto"
+            class="w-full h-auto dark:hidden"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src={slide.darkSrc}
+            alt={slide.alt}
+            width={slide.width}
+            height={slide.height}
+            class="w-full h-auto hidden dark:block"
             loading="lazy"
             decoding="async"
           />

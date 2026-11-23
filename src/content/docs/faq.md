@@ -59,7 +59,7 @@ Matroska Batch Flow does not have a built-in undo feature. Changes are written d
 
 ### What happens if my files have different track counts?
 
-This depends on your [validation mode](/docs/settings#batch-validation). In **Strict mode**, differing track counts are flagged as an error. In **Lenient** or **Custom mode**, this can be allowed.
+This depends on your [validation mode](/docs/settings#batch-validation). In **Strict mode**, differing track counts block **Apply Changes**. In **Lenient** or **Custom mode**, this can be allowed.
 
 When allowed, you can configure properties for all tracks, including those that are not present in every file. During processing, properties are only applied to files that actually have the corresponding track.
 
@@ -96,6 +96,10 @@ In most cases, processing should be fairly quick.
 - Ensure the file is a valid `.mkv` (Matroska) container
 - Check file permissions; the application needs read access
 - Corrupted files may fail to scan; make sure your files are not corrupted
+
+### A file is listed as unsupported
+
+Matroska Batch Flow only edits Matroska files with the `.mkv` extension. A file without that extension, or one whose container is not Matroska, is listed under **Unsupported files** on the **Validation** page with the reason. Unsupported files block **Apply Changes** in every validation mode. Remove them from the batch with the button on that check. This does not delete them from disk. See [Review](/docs/user-guide#review) in the User Guide.
 
 ### Languages not loading
 

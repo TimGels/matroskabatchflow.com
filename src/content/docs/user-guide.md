@@ -1,6 +1,6 @@
 ---
 title: User Guide
-description: Learn the main Matroska Batch Flow workflow, from adding files to processing your batch.
+description: Learn the main Matroska Batch Flow workflow, from adding files to applying your changes.
 order: 2
 ---
 
@@ -11,7 +11,7 @@ Matroska Batch Flow is designed to make batch editing of Matroska files easy and
 1. **Add files**: Select the `.mkv` files you want to process
 2. **Review**: Check for any validation issues or inconsistencies across your batch
 3. **Configure**: Set container and track properties across the batch
-4. **Process**: Apply changes to all files at once
+4. **Apply Changes**: Write your edits to all files at once
 
 ## Adding Files
 
@@ -24,11 +24,24 @@ When files are added, Matroska Batch Flow scans them to extract metadata such as
 
 ## Review
 
-Validation runs automatically whenever files are added or removed. Before continuing, check for any issues or inconsistencies flagged across your batch.
+Validation runs automatically whenever files are added or removed.
 
 :::tip
 The strictness of validation is configurable. See [Batch Validation](/docs/settings#batch-validation) for more information.
 :::
+
+Open **Validation** next to **Input** to review the whole batch. **Blocking** checks prevent you from applying edits. **Advisory** checks are for you to inspect and don't block edits. On **Input**, the bar above the file list summarizes the checks, and a link such as **View all 4 checks** opens the same page. When checks block the batch, a warning banner below the navigation explains the blocker and offers an action such as **Review 2 blocking checks** to open Validation. The banner is hidden while you're on Validation or a batch operation is running.
+
+### Compare the files behind a check
+
+Choose a check in the sidebar, or use **Check to review** in a narrow window. For example, **Subtitle language tags → Track 2** might show Portuguese in six files, English in one, and **Track not present** in three. Expand **English** to see which file has that tag. Neither tag is necessarily wrong.
+
+- **Not specified** means the track exists but has no language tag. **Track not present** means the file has no track at that position.
+- To review one file, select the number in its **Batch checks** column on **Input**. The number is how many checks involve that file. On **Validation**, you'll see the file's scanned value above the batch comparison. Clear the file filter to see all checks again. You can do so by clicking the filename.
+- **Open track settings** opens the **batch** editor with that track selected. When you return to **Validation**, the same check is still selected.
+- On a blocking check, **Validation settings** opens [Batch Validation](/docs/settings#batch-validation), where you choose which differences block edits.
+
+If **Unsupported files** appears, select it to see the reason for each file. These files are excluded from track comparisons and block edits in every [validation mode](/docs/settings#batch-validation). The remove button on that check, such as **Remove 2 unsupported files from batch**, takes them out of the batch. This does not delete them from disk.
 
 ## Configuring Properties
 
@@ -45,7 +58,7 @@ The General page lets you configure container-level properties:
 
 ### Track Properties
 
-The Video, Audio, and Subtitles pages let you configure properties per track:
+The Video, Audio, and Subtitle pages let you configure properties per track:
 
 | Property         | Description                                          |
 | ---------------- | ---------------------------------------------------- |
@@ -71,9 +84,9 @@ Hovering over a dot shows a tooltip with the exact count (e.g., "Track 1 is avai
 You can enable the **Track Availability Display** setting to show a detailed file count (e.g., `6/6`) next to the colored dot. See [Settings](/docs/settings) for details.
 :::
 
-## Processing
+## Apply Changes
 
-When ready, press **Process Files** to apply your changes to all files in the batch.
+Select **Show Arguments** if you want to preview the `mkvpropedit` commands, then **Apply Changes** to write the configured edits in place. These buttons are available once you have files and at least one edit, provided no checks block the batch and no batch operation is running.
 
 While the batch is being processed, a progress window covers the app. It shows the file being processed, how many files are done, and the overall progress. For changes that read the whole file, such as adding track statistics tags, it also shows the progress of the current file as a percentage. On Windows, the progress is also shown on the app's taskbar button.
 

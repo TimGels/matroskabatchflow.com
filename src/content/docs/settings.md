@@ -37,15 +37,17 @@ On non-Windows platforms (experimental Skia target), custom path mode is always 
 
 ## Batch Validation
 
-Controls how strictly files are validated before processing. Validation checks run automatically when files are added or removed, and when validation-related settings are changed.
+These settings control which differences between supported files block **Apply Changes**. Checks run automatically when files are added or removed and when validation settings change. Open the **Validation** tab to [compare scanned values and see filenames](/docs/user-guide#review).
 
 ### Strictness Mode
 
 | Mode        | Behavior                                                                                                        |
 | ----------- | --------------------------------------------------------------------------------------------------------------- |
-| **Strict**  | All files must have matching track counts and consistent properties. Mismatches block processing. _(default)_   |
-| **Lenient** | Files with different track counts are allowed. Differences are reported as non-blocking informational messages. |
+| **Strict**  | Track count and language differences block edits. Default and forced flag differences are advisory. _(default)_ |
+| **Lenient** | Track differences are advisory. They remain visible but do not block edits.                                     |
 | **Custom**  | Configure the severity for each validation check independently.                                                 |
+
+**Unsupported files always block edits**, even in Lenient mode or when track checks are off. They are not included in the track comparisons.
 
 ### Strict Mode Details
 
@@ -62,7 +64,7 @@ The Strict preset applies the following validation severity levels:
 
 ### Lenient Mode Details
 
-The Lenient preset lowers all checks to informational level:
+The Lenient preset lowers all track consistency checks to informational level:
 
 | Check                                         | Severity |
 | --------------------------------------------- | -------- |
@@ -77,16 +79,16 @@ In Custom mode, a validation grid appears where you can independently control th
 
 #### Severity Levels
 
-| Severity    | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| **Off**     | Validation check is disabled entirely                     |
-| **Info**    | Shows an informational message; does not block processing |
-| **Warning** | Shows a warning; does not block processing                |
-| **Error**   | Blocks processing until resolved                          |
+| Severity    | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| **Off**     | Validation check is disabled entirely                              |
+| **Info**    | Listed under **Advisory** as information and does not block edits     |
+| **Warning** | Listed under **Advisory** as a warning and does not block edits       |
+| **Error**   | Listed under **Blocking** and blocks **Apply Changes** until resolved |
 
 #### Track Count Parity
 
-A global check that applies across all track types. When enabled, it validates that all files in the batch have the same number of audio, video, and subtitle tracks.
+A global check that compares the number of audio, video, and subtitle tracks across supported files.
 
 #### Per-Track-Type Checks
 

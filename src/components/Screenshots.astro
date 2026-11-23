@@ -1,32 +1,49 @@
 ---
 import { getImage } from "astro:assets";
 import Carousel from "./Carousel.svelte";
-import inputPage from "../assets/screenshots/Input-Page.jpg";
-import audioConfigPage from "../assets/screenshots/Audio-Config-Page.jpg";
-import resultsPage from "../assets/screenshots/Results-Page.jpg";
-import settingsPage from "../assets/screenshots/Settings-Page.jpg";
+import inputPageLight from "../assets/screenshots/Input-Page-Light.png";
+import inputPageDark from "../assets/screenshots/Input-Page-Dark.png";
+import validationPageLight from "../assets/screenshots/Validation-Page-Light.png";
+import validationPageDark from "../assets/screenshots/Validation-Page-Dark.png";
+import audioConfigPageLight from "../assets/screenshots/Audio-Config-Page-Light.png";
+import audioConfigPageDark from "../assets/screenshots/Audio-Config-Page-Dark.png";
+import resultsPageLight from "../assets/screenshots/Results-Page-Light.png";
+import resultsPageDark from "../assets/screenshots/Results-Page-Dark.png";
+import settingsPageLight from "../assets/screenshots/Settings-Page-Light.png";
+import settingsPageDark from "../assets/screenshots/Settings-Page-Dark.png";
 
 const screenshots = [
   {
-    image: inputPage,
+    imageLight: inputPageLight,
+    imageDark: inputPageDark,
     alt: "Input Page: Add files for batch processing",
     caption: "Input Page",
     description: "Add files for batch processing",
   },
   {
-    image: audioConfigPage,
+    imageLight: validationPageLight,
+    imageDark: validationPageDark,
+    alt: "Validation Page: Compare files track by track",
+    caption: "Validation Page",
+    description: "Compare files track by track",
+  },
+  {
+    imageLight: audioConfigPageLight,
+    imageDark: audioConfigPageDark,
     alt: "Track Configuration: Edit track properties",
     caption: "Track Configuration",
     description: "Edit track properties",
   },
   {
-    image: resultsPage,
+    imageLight: resultsPageLight,
+    imageDark: resultsPageDark,
     alt: "Results Page: Review processing results",
     caption: "Results Page",
     description: "Review processing results",
   },
   {
-    image: settingsPage,
+    imageLight: settingsPageLight,
+    imageDark: settingsPageDark,
     alt: "Settings Page: Customize application preferences",
     caption: "Settings Page",
     description: "Customize application preferences",
@@ -34,15 +51,17 @@ const screenshots = [
 ];
 
 const slides = await Promise.all(
-  screenshots.map(async ({ image, alt, caption, description }) => {
-    const optimized = await getImage({ src: image });
+  screenshots.map(async ({ imageLight, imageDark, alt, caption, description }) => {
+    const light = await getImage({ src: imageLight });
+    const dark = await getImage({ src: imageDark });
     return {
-      src: optimized.src,
+      src: light.src,
+      darkSrc: dark.src,
       alt,
       caption,
       description,
-      width: optimized.attributes.width,
-      height: optimized.attributes.height,
+      width: light.attributes.width,
+      height: light.attributes.height,
     };
   }),
 );
