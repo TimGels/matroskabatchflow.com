@@ -33,10 +33,6 @@ npm run dev
 
 The site will be available at **<http://localhost:4321>**.
 
-## Optional Copilot MCP servers
-
-The [MCP configuration](.mcp.json) uses `MCP_GITHUB_PERSONAL_ACCESS_TOKEN` for the GitHub server and, optionally, `CONTEXT7_API_KEY` for Context7. Set them in the environment where Copilot runs; do not commit credentials.
-
 ## Deployment
 
 Pushes to `main` trigger a **GitHub Actions** workflow that builds the site and deploys it to **GitHub Pages** at [matroskabatchflow.com](https://matroskabatchflow.com/).
