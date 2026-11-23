@@ -15,7 +15,7 @@ public/
 src/
 ├── content.config.ts      # Astro Content Collections: docs collection with title, description, order fields
 ├── assets/
-│   └── screenshots/       # App screenshots (Audio-Config-Page.jpg, Input-Page.jpg, Results-Page.jpg, Settings-Page.jpg)
+│   └── screenshots/       # App screenshots as <Page>-Light.png / <Page>-Dark.png pairs; components show the one matching the site theme with dark:hidden / hidden dark:block
 ├── components/
 │   ├── Carousel.svelte    # Image carousel (Svelte island)
 │   ├── Download.astro     # Download section
