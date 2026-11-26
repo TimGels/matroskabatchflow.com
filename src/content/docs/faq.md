@@ -57,6 +57,10 @@ Common causes:
 
 Matroska Batch Flow does not have a built-in undo feature. Changes are written directly to the file without creating a backup, so previous property values cannot be restored automatically. It goes without saying to back up irreplaceable files before processing.
 
+### Does clearing result history undo my edits?
+
+No. Clearing history removes saved reports, not the edits written to your files. See [Manage saved results](/docs/user-guide#manage-saved-results) to remove a single report or clear the list.
+
 ### What happens if my files have different track counts?
 
 This depends on your [validation mode](/docs/settings#batch-validation). In **Strict mode**, differing track counts block **Apply Changes**. In **Lenient** or **Custom mode**, this can be allowed.
@@ -107,6 +111,10 @@ The language list is loaded from a bundled `languages.json` file. If it's missin
 
 1. Re-download the release from GitHub
 2. Ensure the `Resources` folder is intact alongside the executable
+
+### Why does Results say history needs recovery?
+
+The app couldn't read the saved history. On **Results**, open **Saved batch result** and choose **Recover history…**. Read the confirmation before continuing: if the history is still unreadable, the app rebuilds it from the results it can still show. Results it couldn't read will be lost. If it finds a readable history that's missing results still listed in the app, you can choose to keep the saved history or restore the missing results.
 
 ### Where are user settings stored?
 
