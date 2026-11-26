@@ -1,17 +1,18 @@
 ---
 title: User Guide
-description: Learn the main Matroska Batch Flow workflow, from adding files to applying your changes.
+description: Learn the Matroska Batch Flow workflow, from adding files to reviewing and managing batch results.
 order: 2
 ---
 
 ## Overview
 
-Matroska Batch Flow is designed to make batch editing of Matroska files easy and efficient. The main workflow comes down to four simple steps:
+The main workflow has five steps:
 
 1. **Add files**: Select the `.mkv` files you want to process
 2. **Review**: Check for any validation issues or inconsistencies across your batch
 3. **Configure**: Set container and track properties across the batch
-4. **Apply Changes**: Write your edits to all files at once
+4. **Apply Changes**: Write the configured edits to the batch
+5. **Review results**: See what happened to each file
 
 ## Adding Files
 
@@ -99,7 +100,26 @@ Press **Cancel** to stop the batch:
 - The file that is being processed is always finished first, so a file is never left half-written. When track statistics are added to a large file this can take a while; the progress window keeps showing its progress.
 - Files that haven't been started are left unchanged.
 
-After processing, a dialog summarizes the result, and the Results page shows counts for total files, succeeded, warnings, and failed.
+## Review results
+
+After processing, dismiss the summary dialog and open **Results**. The banner shows the batch outcome, when the run started, and how long it took. Use the filter above **Files** to narrow the list by outcome, or expand a file to see its location, any errors or warnings, and a diagnostic preview of the `mkvpropedit` command, when available.
+
+- **Files** counts every file in the batch.
+- **Updated** counts files updated successfully.
+- **Warnings** counts updated files where `mkvpropedit` reported something to review. These files are also counted under **Updated**.
+- **Failed** counts files that could not be updated because of an error.
+- **No applicable changes** means none of your edits applied to this file, usually because it lacks the configured track. Existing values aren't compared.
+- **Not processed** means you canceled the batch before the file was edited.
+- **Interrupted** means the batch stopped unexpectedly before the file finished. If editing had started, the file may have changed.
+
+### Manage saved results
+
+Results are saved on your device, so you can review past batches after restarting the app. Open **Saved batch result** and select a run by its date and outcome.
+
+- To remove one result, select the trash icon next to it and confirm **Remove from history**.
+- To clear all listed results, select **Clear result history…**, check the count, and confirm **Remove all**.
+
+Removing results doesn't change your media files or undo any edits. To choose how many batch results the app keeps, see [Saved results](/docs/settings#saved-results).
 
 ## Next Steps
 

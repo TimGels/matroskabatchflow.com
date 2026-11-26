@@ -10,8 +10,9 @@ Open the Settings page by clicking the gear icon in the top-right corner of the 
 
 - [Mkvpropedit](#mkvpropedit) - Configure the mkvpropedit executable path
 - [Batch Validation](#batch-validation) - Control validation strictness for your batches
-- [User Interface](#user-interface) - Theme and display preferences
+- [User Interface](#user-interface) - Theme, display, and saved results
 - [Logging](#logging) - Log viewer and verbosity settings
+- [Support](#support) - Link to the project's sponsor page
 - [About](#about) - Version, license, and attribution info
 
 ---
@@ -125,6 +126,14 @@ Show detailed file count (e.g., "X/Y files") together with colored indicators in
 - **Enabled** _(default)_: Colored dot indicators are shown together with "X/Y files" text
 - **Disabled**: Only colored dot indicators are shown
 
+### Saved results
+
+Choose how many finished batches to keep on the **Results** page, from 1 to 100. The default is 20. When more runs are saved, the oldest results are removed first.
+
+If lowering the limit would remove saved results, the app shows how many would be removed. Select **Remove results** to apply the new limit, or **Cancel** to keep both the previous limit and your saved results. This does not change your media files.
+
+If the setting is read-only because history could not be read, [recover the history](/docs/faq#why-does-results-say-history-needs-recovery) before changing the limit.
+
 ---
 
 ## Logging
@@ -156,6 +165,12 @@ Set the log level to **Debug** or **Verbose** when troubleshooting an issue befo
 :::note
 The log level can be overridden in the application's `appsettings.json` configuration file. When `LoggingOptions.MinimumLevel` is set there, the UI log level selector is disabled and the configured level is used instead.
 :::
+
+---
+
+## Support
+
+Select **Support the project** to open the [Sponsor](/sponsor) page in your browser. You can also get there from the heart icon next to Settings.
 
 ---
 
